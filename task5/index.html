@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var shop = [{
+        //         title: 'milk',
+        //         price: 50,
+        //         count: 2
+        //     },
+        //     {
+        //         title: 'kefir',
+        //         price: 45,
+        //         count: 4
+        //     }, {
+        //         title: 'juice',
+        //         price: 35,
+        //         count: 3
+        //     }
+        // ];
+        // var a = '';
+        // var b = 0;
+        // let c, d;
+        // d = shop[0].price - shop[0].count;
+        // let f = [0].title;
+        // for (let i = 0; i < shop.length; i++) {
+        //     c = shop[i].price * shop[i].count;
+        //     if (c > d) {
+        //         f = shop[i].title
+        //         d = c;
+        //     }
+        // }
+        // console.log(f);
+        // console.log(d);
+        //     a += shop[i].title + ' ';
+        //     b += shop[i].price * shop[i].count;
+        // }
+        // console.log(a);
+        // console.log(`Сумма чека: ${b}`)
+        // var c= shop[i].price * shop[i].count;
+
+
+
+        // // для четных т.к. начинается с 0
+        // var number = [235, 25, 378, 8, 36, 27, 69];
+        // // var n=0;
+        // var n = 1;
+        // // for (let i = 0; i < number.length; i += 2) {
+        //     // n+=number[i]
+        //     //         }
+        //     //         console.log(n);
+        //     for (let i = 0; i < number.length; i++) {
+        //         n *= number[i];
+        //     }
+        //     console.log(n);
+
+
+
+        // Список продуктов. Массив с содержанием название продукта ,необходимое количество и куплен или нет.Составить функции для массивов.
+
+        var
+            gloceryList = [{
+                name: 'milk',
+                number: 5,
+                bought: true
+            }, {
+                name: 'meat',
+                number: 6,
+                bought: false
+            }, {
+                name: 'juice',
+                number: 2,
+                bought: false
+            }, {
+                name: 'vegatebles',
+                number: 10,
+                bought: true
+            }]
+        // 1.Вывод всего списка на экран так чтобы вначале шли некупленные , потом купленные.
+        // gloceryList.forEach(nameA => console.log(nameA));
+        // let gloceryListNew = '';
+
+        // function isBought(object) {
+        //     for (let i = 0; i < object.length; i++) {
+        //         if (object[i].bought == true) {
+        //             gloceryListNew += object[i].name + ' ';
+
+        //         }
+        //         if (object[i].bought !== true) {
+        //             gloceryListNew += object[i].name + ' ';
+        //         }
+        //     }
+        // }
+
+        // isBought(gloceryList);
+        // console.log(gloceryListNew);
+
+
+
+        // 2. Добавление покупки в список . учитите что при добавлении уже существующего продукта в список
+        // , необходимо увеличивать количество в существующей покупки а не добавлять новую
+
+
+
+        // 3.Покупка продукта. Функция принимает название продукта и отмечает его как купленный.
+
+
+
+
+        // // задать массив из 10 случанйх чисел:
+        // var number = [1, 15, 2, 9, 17, 77, 155, 80, 99, 6];
+
+
+        // 1.Программа выводит его на экран
+        // console.log(number);
+
+        // for (i = 0; number.length > i; i++) {
+
+        //     console.log(number[i])
+
+        // }
+
+        // 2. Программа выводит только четные элементы
+
+        // for (i = 0; number.length > i; i++) {
+        //     if (number[i] % 2 === 0) {
+        //         console.log(number[i])
+        //     }
+        // }
+
+
+        // 3.Программа выводит сумму всех элементов массива
+        //         var sum=0
+        //       function getSum(arr) {
+        //           for (i = 0; number.length > i; i++) {
+        //           sum+=number[i];
+        //           }
+        //            console.log(sum);
+        //       }
+        // getSum(number);
+        // второй метод:
+
+        // currentItem – текущий элемент массива, элементы перебираются по очереди слева-направо.
+        // var result = number.reduce(function (sum, current) {
+        //         return sum + current;
+        //     }, 0)
+        // console.log(result)
+
+        // // 4.Программа выводит максимальный элемент массива
+
+        /* макс числа в массиве */
+        /* используем apply к Math.min/Math.max */
+        //         var max = Math.max.apply(null, number);
+        //         /* Это эквивалентно Math.max(numbers[0], ...)
+        // или Math.max(5, 6, ...) */
+        //         console.log(max)
+        // второй метод:
+        // max = -Infinity;
+
+        // for (var i = 0; i < number.length; i++) {
+        //     if (number[i] > max) {
+        //         max = number[i];
+        //     }
+        // }
+        // console.log(max)
+        // 5.Программа добавляем новый элемент в заданный индекс
+        
+
+//  let arr = [1, 15, 77, 155, 80, 99, 6];
+//   let newElement = 7506;
+// let addIndex=4;
+// let afterSplice=function(elem, index, arr) {
+//     let newArr=arr.splice(0,index,elem);
+//     return(newArr);
+
+// }
+// let newArr1=[...afterSplice(newElement,addIndex,arr), ...arr];
+// console.log(newArr1);
+
+
+
+//  let myArr=[1, 15, 2, 9, 17, 77, 155, 80, 99, 6,10];
+// let newElement = 666;
+// let newIndex = 6;
+// let arrayWithNewElement = function(elem, index, arr) {
+// let newArr = arr.splice(0, index, elem);
+// return (newArr);
+// }
+// let newArray1 = [...arrayWithNewElement(newElement, newIndex, myArr), ...myArr];
+// console.log(newArray1);
+// let newArray2 = arrayWithNewElement(newElement, newIndex, myArr).concat(myArr);
+// console.log(newArray2);
+
+
+
+//         // 6.Программа удаляет  элемент по заданному индексу заданный индекс
+//         let arr=[1, 15, 2, 9, 17, 77, 155, 80, 99, 6,10];
+//         let deleteIndex=0;
+//         let AfterSplice=function(newArr,index){
+//             newArr.splice(index,1);
+//         }
+// AfterSplice(arr,deleteIndex);
+// console.log(arr)
+
+
+
+    </script>
+</body>
+
+</html>

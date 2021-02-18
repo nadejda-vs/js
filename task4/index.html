@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var object={
+
+        //     leftHeight: {
+        //     x:2,
+        //     y:2
+        //     },
+        //     rightBottom:{
+        //         x:9,
+        //         y:-2
+        //     }
+        // }
+        // function printPoints(square) {
+        //     console.log(`Точка А= ${square.leftHeight.x}, ${square.leftHeight.y}`);
+        //   console.log(`Точка B= ${square.rightBottom.x},${square.leftHeight.y}`);
+        //   console.log(`Точка C= ${square.rightBottom.x},${square.rightBottom.y}`);
+
+        // console.log(`Точка D= ${square.leftHeight.x},${square.rightBottom.y}`);
+
+        // }
+        // printPoints(object) ;
+
+
+        // function getWidth(square) {
+        //     var widthBC=Math.abs(square.rightBottom.y-square.leftHeight.y);
+        //       var lengthAB=Math.abs(square.rightBottom.x-square.leftHeight.x);
+        //       if( widthBC<lengthAB){
+        // return widthBC;
+        //       } else if (widthBC>lengthAB)
+        //       {
+        // return(lengthAB)
+        //       }
+        //       else{
+        //     return('Это квадрат')}
+        // }
+        // var c=getWidth(object)
+        // console.log(c);
+
+        var object = {
+            leftTop: {
+                x1: 2,
+                y1: 2
+            },
+            rightBottom: {
+                x2: 9,
+                y2: -2
+            }
+        }
+
+        function printPoints(rectangle) {
+            console.log(`Точка А= ${rectangle.leftTop.x1} , ${rectangle.leftTop.y1}`);
+            console.log(`Точка B= ${rectangle.rightBottom.x2} , ${rectangle.leftTop.y1}`);
+            console.log(`Точка С= ${rectangle.leftTop.x1} , ${rectangle.rightBottom.y2}`);
+            console.log(`Точка D= ${rectangle.rightBottom.x2} , ${rectangle.rightBottom.y2}`);
+        }
+        printPoints(object);
+
+
+        function getWidth(rectangle) {
+            var BA = Math.abs(rectangle.rightBottom.x2 - rectangle.leftTop.x1);
+            var DB = Math.abs(rectangle.rightBottom.y2 - rectangle.leftTop.y1);
+            if (BA > DB) {
+                return DB;
+            } else if (BA < DB) {
+                return BA;
+            } else {
+                return ('Это квадрат')
+            }
+        }
+        var c = getWidth(object)
+        console.log(c);
+
+        function getHeight(rectangle) {
+            var BA = Math.abs(rectangle.rightBottom.x2 - rectangle.leftTop.x1);
+            var DB = Math.abs(rectangle.rightBottom.y2 - rectangle.leftTop.y1);
+            if (BA > DB) {
+                return BA;
+            } else {
+                return DB;
+            }
+        }
+        var h = getHeight(object)
+        console.log(h);
+
+        function getS(rectangle) {
+            var BA = Math.abs(rectangle.rightBottom.x2 - rectangle.leftTop.x1);
+            var DB = Math.abs(rectangle.rightBottom.y2 - rectangle.leftTop.y1);
+            console.log(BA * DB);
+        }
+        getS(object)
+
+        function getP(rectangle) {
+            var BA = Math.abs(rectangle.rightBottom.x2 - rectangle.leftTop.x1);
+            var DB = Math.abs(rectangle.rightBottom.y2 - rectangle.leftTop.y1);
+            console.log(BA + DB);
+        }
+        getP(object)
+
+
+        //  6. Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить
+        // ширину.????????????????????????
+        function changeWidth(rectangle, step) {
+            if (step > 0) {
+                rectangle.rightBottom.x2 += step;
+
+            } else {
+                rectangle.rightBottom.x2 -= step;
+            }
+        }
+
+        // var cW=changeWidth(object,1);
+        // console.log(cW);
+
+
+        changeWidth(object, 1);
+
+
+
+        // / 3. Создать обьект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом
+
+        // var 
+        // fraction ={
+        //     numerator:6,
+        //     denominator:2
+        // }
+        //     // / 1 Сложение дробей.
+
+        // function sum(a) {
+        //     var sum=fraction.numerator+fraction.denominator;
+        //     console.log(`Сложение числителя и знаменателя= ${sum}`)
+        // };
+        // sum(fraction)
+        // // 2 Вычитание
+        // function subtraction(b) {
+        //   var  subtraction=fraction.numerator-fraction.denominator;
+        //     console.log(`Вычитание числите и знаменателя= ${subtraction} `)
+        // };
+        // subtraction(fraction);
+
+        // // 3.Умножение
+        // function multiplication(c) {
+        //     var multiplication=fraction.numerator*fraction.denominator;
+        // console.log(`Умножение= ${multiplication} `)
+        // };
+        // multiplication(fraction);
+        // // 4. Деление
+        // function division(d) {
+        //     var division=fraction.numerator/fraction.denominator;
+        // console.log(`Деление= ${division} `)
+        // };
+        // division(fraction);
+
+
+        // 5.Сокращение дроби
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         var element = [8, 2, -25, 19, 1];
+        //         var minEl = element[0];
+
+        //         element.forEach(n => {
+        //             if (n < minEl) {
+        //                 minEl = n;
+
+        //             }
+        //         });
+        //         var minIndex = element.findIndex(a => a === minEl)
+        // console.log(minIndex);
+        // console.log(minEl);
+
+        // 1.2
+        // var element = [8, 2, -25, 19, -1];
+        // var negEl = 0;
+        // var a;
+        // for (let i = 0; i < element.length; i++) {
+        //     if (a) {
+        //         negEl += Math.abs(element[i]);
+
+        //     }
+        //     if (element[i] < 0) {
+        //         a = true;
+        //     }
+        // }
+        // console.log(negEl)
+
+
+        // 2/1
+        // var element = [8, 2, -25, 19, 1];
+        // var maxEl = element[0];
+
+        // element.forEach(n => {
+        // if (n > maxEl) {  maxEl=n;  }  });  var maxIndex=element.findIndex(a=> a === maxEl)
+        // console.log(maxIndex);
+        // console.log(maxEl);
+
+        //======================== найти первый отрицательный элекмент  и посчитать сумму после него по модулю
+        // var element = [8, -2, 5, 19, 1];
+        // var minIndex=element.findIndex(a=> a<0);
+        // let sum =element.reduce(function(acc, currentValue, index) {
+        //     if (index>minIndex) {
+        //         return acc+ Math.abs( currentValue);
+        //     }
+        //     return acc
+
+        // },0);
+
+        // console.log(sum);
+        // 3.Вычислить 
+        // ===============================- количество элементов массива,лежащих в диапозоне от А до В(значения).
+
+
+        // 1.Допустим диапазон от 5 до 150
+        // 2.Найти число которые идут после 5 и до 150. Через reduce
+        // 3.Считаем количесвто элементов входящих в этот диапазон
+
+        // let arr=[12,654,-84,-6,214,-55]
+        // let a=arr.reduce(function(acc,item) {
+        //     if (5<item && item<150) {
+        //         return acc+1;
+        //     }
+        //     return acc;
+        // },0)
+        // console.log(a)
+
+        // =========================-сумму элементов массива расположенных после максимального элемента
+
+        // let arr = [12, 654, -84, -6, 214, 55]
+        // let b = arr[0] //задаем первому элементу, потом с ним сравниваем//
+        // arr.forEach(item => {
+        //     if (item > b) {
+        //         b = item;
+        //     }
+        // });
+        // // нашли максимальный элемент, ищем индекс максимального элемента
+        // let c = arr.findIndex(item => {
+        //     return item === b
+        // })
+        // console.log(c);
+        // // слаживаем все числа после максимального
+        // let d = arr.reduce(function (acc, item, index) {
+        //     if (index > c) {
+        //         return acc + item
+        //     }
+        //     return acc;
+        // }, 0)
+        // console.log(d);
+        // let array = [1, 2, 3, 4, 0, 6, 60, 15, -586];
+        // let a = 5;
+        // let b = 2;
+        // c = 0;
+
+        // 4.Вычислить: 
+        // let arr = [12, -654, 0, -6, 0, -55];
+
+        //================================== -количество элементов массива равных 0;
+        //         let a = arr.reduce(function (acc, item) {
+        //             if (item === 0) {
+        //                 return acc+1;
+        //             }return acc
+        //         }, 0)
+        // console.log(a)
+        //         let arr = [12, 1, 0, 5, 0, 4];
+        //         // ======================-сумму элементов массива расположенных после минимального элемента
+
+
+        //         // -задаем первому элементу переменную т.к. будем с ним сравнивать
+        //         var minEl = arr[0]
+        //         // -сравниваем все числами с предудщими, находим самы минимальный элемент
+        //         arr.forEach(item => {
+        //             if (item <minEl) {
+        //                 minEl = item;
+        //             }
+
+        //         });
+        //         console.log(minEl)
+        //         //    -нашли минимальный элемент, находим его индекс
+        //         var minIndex = arr.findIndex(item => {
+        //             return item === minEl
+        //         })
+        //         console.log(minIndex);
+        //         // -слаживаем все элементы после минимального значения
+        //          var c= arr.reduce(function (acc,item,index) {
+        //              if (index>minIndex) {
+        //                  return acc+item;
+        //              }
+        //              return acc;
+        //          },0)
+
+        // console.log(c);
+        // 5/- Вычислить :
+        // ==============-количество элемнтов массива больших С;
+
+        // var arr=[1,5,47,-2,0,-4,77];
+        // var c=10;
+        // var d=arr.reduce(function (acc,item,index) {
+        //   if (item >c) {
+        //       return acc+1
+        //   }  
+        //   return acc
+        // },0)
+        // console.log(d)
+
+
+
+
+
+        // ==================произвдение элемнтов массива,расположенных после максимального по модулю  элемента
+        //         var arr = [1, 4, -2, 15, -2, -1, 6, 2]
+        //         // -ищем максимальный элементв массива
+        //         var maxEl = arr[0]
+        //         arr.forEach(item => {
+        //             if (item > maxEl) {
+        //                 return maxEl = item
+        //             }
+        //         });
+        //         console.log(maxEl)
+        //         // / -находим индекс максимального элемента
+        //         var maxIndex = arr.findIndex(item => {
+        //             return item === maxEl
+        //         })
+
+        //         console.log(maxIndex);
+        //   // -ищем произведение элемнтов по модулю после максимального элемнта массива
+
+        //         var maxEl=arr.reduce(function (acc,item,index) {
+        //         if (index>maxIndex) {
+        //             return Math.abs(item*acc);
+        //         }
+        //         return acc;
+        //         },1)
+        //         console.log(maxEl)
+
+
+
+        // 6.Вычислить :
+
+        // ===========================-– отрицательных элементов массива;
+        // var arr=[1,5,10,-5,-4,-6,0,55,10]
+        // var b=arr[0]
+        // var a=arr.reduce(function (acc,item) {
+        //     if (item<0) {
+        //         return item+acc;
+        //     }
+        //     return acc
+        // },0)
+
+        // console.log(a)
+        // =======================– сумму элементов массива, расположенных после последнего элемента, равного нулю.
+        // -находим элемент котрый равен нулю
+        // var arr = [1, 5, 15, -5, -4, -6, 0, 55, 10]
+        // var elWithZero = 0
+        // arr.forEach(item => {
+        //     if (item === elWithZero) {
+        //         return elWithZero === item;
+        //     }
+
+        // });
+        // console.log(elWithZero);
+        // // -находим его индекс
+        // var indexWithZero = arr.findIndex(item => {
+        //     return item === elWithZero;
+        // })
+        // console.log(indexWithZero);
+        // // -находим сумму массива после нуля
+        // var c = arr.reduce(function (acc, item, index) {
+        //     if (index > indexWithZero) {
+        //         return (Math.abs(item * acc))
+        //     }
+        //     return acc;
+
+        // }, 1)
+        // console.log(c)
+
+
+
+        // 8 В массиве, состоящем из n элементов,
+        // вычислить:
+        // – количество элементов массива, меньших С;
+        // var arr=[1,12,10,250,32,-5,4,2]
+        // var c=10
+        // var b=arr.reduce(function (acc,item) {
+        //     if (c>item) {
+        //         return acc+1
+        //     }
+        //     return acc
+        // },0)
+        // console.log(b)
+        // – сумму целых частей элементов массива, расположенных после последнего отрицательного элемента.
+        var arr1 = [1, 12, 10, 250, 32, -5, 4, 2]
+
+
+
+        // 9 В массиве, состоящем из n элементов, вычислить:
+        // – произведение отрицательных элементов массива;
+        // var arr = [1, 12, 10, 250, -10, -5, 4, -2]
+        // var c = arr.reduce(function (acc, item) {
+        //     if (item < 0) {
+        //         return item * acc
+        //     }
+        //     return acc;
+        // }, 1)
+        // console.log(c)
+
+
+        // – сумму положительных элементов массива, расположенных до максимального элемента.
+
+
+
+
+
+
+
+        // 10 В массиве, состоящем из n элементов,
+        // вычислить:
+        // – номер максимального элемента;
+        //     var arr = [1, 12, 10, 250, 32, -5, 4, 2]
+        //     var maxEl=[0]
+        //     arr.forEach(item => {
+        //         if (item>maxEl) {
+        //            return maxEl=item
+        //         }
+        //     });
+        //     console.log(maxEl)
+        //    var maxIndex= arr.findIndex(item =>{
+        //            return item===maxEl
+
+        //     })
+        //         console.log(maxIndex)
+
+
+        // – сумму элементов массива, расположенных до минимального
+        // элемента.
+
+
+
+
+
+
+
+
+
+
+        // ????
+        // function getNumber1(arr) {
+        //     arr.forEach(x => {
+        //         if ((x < 0) && b !== 0) console.log(`1 ${a * Math.pow(x, 2)+b}`)
+        //         else if ((x > 0) && (b === 0)) console.log(`2 ${(x-a)/(x-c)}`)
+        //         else {
+        //             console.log(`3) ${x/c}`)
+        //         }
+        //     });
+        // }
+        // getNumber1(array);
+    </script>
+</body>
+
+</html>
