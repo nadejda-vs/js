@@ -42,20 +42,20 @@
 // })
 
 
+// решение
+// let input = document.getElementById('input');
+// let button = document.getElementById('button');
+// let ul = document.createElement('ul');
 
-let input = document.getElementById('input');
-let button = document.getElementById('button');
-let ul = document.createElement('ul');
+// function clickOnButton() {
+//     let li = document.createElement('li');
+//     let valueInput = input.value;
+//     li.innerHTML = valueInput;
 
-// let valueInput = input.value;
-
-function clickOnButton() {
-    let li = document.createElement('li');
-    let valueInpur = input.value;
-
-    document.body.appendChild(ul);
-    ul.appendChild(li);
-}
+//     document.body.appendChild(ul);
+//     ul.appendChild(li);
+//     input.value = '';
+// }
 
 
 
