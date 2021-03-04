@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<!--  1/<progress id="progress" max="100" value="0">
+  </progress>
+<button>Add 5%</button> -->
+
+
+<!-- 2////// -->
+<!-- <button class="btn">Clcc</button>
+<div id="likes">5</div> -->
+<!-- 2-ой вариант решения
+Лайки <input type="button" value="0" data-counter> -->
+
+<!-- 3///////
+<h1 id="h1">Random number:</h1>
+<button id="button" onclick="click" >Create random number</button> -->
+
+
+<!-- 
+4///////////////
+<button data-toggle-id="button">Нide/Show text</button>
+
+<p id="button"  >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora debitis doloremque quod praesentium. In dolorem animi expedita omnis nam necessitatibus, officiis maiores praesentium illum ad beatae distinctio dolore dolorum earum. Exercitationem nemo, eveniet consequatur voluptatibus perferendis itaque officia praesentium porro quis laborum corrupti quaerat assumenda. Corrupti perferendis ea suscipit ducimus consectetur at tempora similique eaque doloremque.</p> -->
+
+
+
+
+
+<div  ondblClick="this.style.color='orange'">
+    <p> "Анна Каренина" - Лев Толстой
+        «Автостопом по галактике» — Дуглас Адамс
+        «Алиса в Стране чудес» — Льюис Кэрролл
+        «Алхимик» — Пауло Коэльо
+        «Американский психопат» — Брет Истон Эллис
+        «Аня из Зеленых Мезонинов» — Люси Мод Монтгомери
+        «Ангус, ремни и конкретные обжимашки» — Луиз Рэннисон
+        «Артемис Фаул» — Йон Колфер</p>
+</div>
+
+
+
+</body>
+<script>  
+  
+
+
+
+ 
+
+// <//1/ let btn =0;
+// function add() {
+// btn +=5;
+//     document.querySelector("#progress").value=btn
+// }
+// document.addEventListener("click",add); -->
+
+
+// 2///////
+// let counter=0;
+// function likes() {
+// counter++;
+// document.querySelector("#likes").innerHTML=counter;
+// }
+//     document.addEventListener("click", likes) 
+// 2 -ой вариант решения
+//     document.addEventListener('click', function (event) {
+
+//         if (event.target.dataset.counter != undefined) { 
+//             event.target.value++;
+//         }
+
+//     });
+   
+
+// 3//////////////////////////
+// let buttonRandom=document.querySelector("#button")
+//   h1.insertAdjacentHTML('afterend', '<div id="div">2</div>');
+// function createRandom() {
+//         let txt = document.querySelector("#div");
+// txt.innerHTML="";
+// let random= getRandomIntInclusive(0,100);
+//                 txt.innerHTML=random
+// }
+//     function getRandomIntInclusive(min, max) {
+//         min = Math.ceil(0);
+//         max = Math.floor(100);
+//         return Math.floor(Math.random() * (max - min + 1)) + min; 
+//     }
+//     buttonRandom.addEventListener("click", createRandom) 
+
+
+// 4/////////////////
+
+//   document.addEventListener('click', function (event) {
+//         let id = event.target.dataset.toggleId
+//         if (!id) return;
+
+//         let elem = document.getElementById(id);
+
+//         elem.hidden = !elem.hidden;
+//     });
+
+</script>
+</html>
