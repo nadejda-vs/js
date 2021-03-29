@@ -1,81 +1,119 @@
-let alphabetEng = "qwertyuiopasdfghjklzxcvbnm";
-let alphabetRu='йцукенгшщзхъфывапролджэячсмитьбю'
-function changeLanguage() {
-    if (condition) {
-        
-    }
-}
-let capsLock = document.createElement("button");
-let caps = true;
-document.body.append(capsLock);
-capsLock.innerHTML = "Caps Lock";
-let eng = alphabetEng.split("");
-console.log(eng);
-function addEng() {
-  eng.forEach((item) => {
+let alphabetEng = `qwertyuiopasdfghjklzxcvbnm`.split("");
+let alphabetRu = "йцукенгшщзхъфывапролджэячсмитьбю".split("");
+let numberEng = [
+  "`",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "Backspace",
+];
+let numberRu = [
+  "ё",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "Backspace",
+];
+let leftButton = ["ctrl", "shift", "CapsLock", "tab"];
+let rightButton = ["Space", "Enter", "Delete"];
+let keyWord = {
+  numbRu: numberRu,
+  numEng: numberEng,
+  langEng: alphabetEng,
+  langRu: alphabetRu,
+  leftButton: leftButton,
+  rightButton: rightButton,
+  ctrl: false,
+  shift: false,
+  CapsLock: false,
+};
+const main = document.querySelector("main");
+const aside = document.querySelector("aside");
+const header = document.querySelector("header");
+const footer = document.querySelector("footer");
+const textArea = document.querySelector("#textArea");
+
+createEl(keyWord.langRu, main);
+createEl(keyWord.numbRu, header);
+createEl(keyWord.leftButton, aside);
+// createEl(keyWord.langEng, main);
+function createEl(keyWord, place) {
+  keyWord.forEach((el) => {
     let button = document.createElement("button");
-    document.body.append(button);
-    button.innerHTML = item;
+    button.innerHTML = el;
+    button.onclick = CapsLockAdd;
+    place.append(button);
   });
 }
-let textElement = document.querySelector("#textarea");
-document.querySelectorAll("button");
-document.addEventListener("click", handlClick);
-function handlClick(event) {
-  console.log(event.target);
-  if (event.target.innerHTML === "Caps Lock") {
-    caps = !caps;
-    return caps;
-  }
 
+function CapsLockAdd(event) {
+  if (event.target.innerHTML.length > 1) {
+    keyWord.CapsLock = !keyWord.CapsLock;
+    return keyWord.CapsLock;
+  }
   if (event.target.tagName === "BUTTON") {
-    textarea.value += !caps
+    textArea.value += !keyWord.CapsLock
       ? event.target.innerHTML
       : event.target.innerHTML.toUpperCase();
-    console.log(caps);
   }
 }
-addEng();
 
-var language = window.navigator
-  ? window.navigator.language ||
-    window.navigator.systemLanguage ||
-    window.navigator.userLanguage
-  : "ru";
-language = language.substr(0, 2).toLowerCase();
-console.log(language);
+function handler(event) {
+  if (event.target.innerHTML.length > 1) {
+    return keyDownUp(event);
+  }
+  keyWord.ctrl === true || keyWord.shift === true
+    ? (textArea.innerHTML += event.target.innerHTML.toUpperCase())
+    : (textArea.innerHTML += event.target.innerHTML.toLowerCase());
+}
+function keyDownUp(event) {
+  keyWord[event.target.innerHTML] = !keyWord[event.target.innerHTML];
+  addDellBacklightSomeKeys(event);
+  event.target.innerHTML += "";
+  changeKeysNumber();
+  if (
+    keyWord.shift == true &&
+    keyWord.alt == true &&
+    event.target.innerHTML != CapsLock
+  )
+    changeKeysLetters(event);
+  return keyWord[event.target.innerHTML];
+}
+function addDellBacklightSomeKeys(event) {
+  !event.path[0].classList.contains("backLight")
+    ? event.path[0].classList.add("backLight")
+    : event.path[0].classList.remove("backLight");
+}
+function changeKeysLetters(event) {
+  let keys;
+  main.childNodes[0].innerHTML === "й" ? (keys = "langEng") : (keys = "langRu");
+  for (let i = 0; i < main.childNodes.length; i++) {
+    main.childNodes[i].innerHTML = keyWord[keys][i];
+  }
+}
 
-
-
-
-// kinput.onkeydown = kinput.onkeyup = kinput.onkeypress = handle;
-
-// let lastTime = Date.now();
-
-// function handle(e) {
-//   if (form.elements[e.type + "Ignore"].checked) return;
-
-//   let text =
-//     e.type +
-//     " key=" +
-//     e.key +
-//     " code=" +
-//     e.code +
-//     (e.shiftKey ? " shiftKey" : "") +
-//     (e.ctrlKey ? " ctrlKey" : "") +
-//     (e.altKey ? " altKey" : "") +
-//     (e.metaKey ? " metaKey" : "") +
-//     (e.repeat ? " (repeat)" : "") +
-//     "\n";
-
-//   if (area.value && Date.now() - lastTime > 250) {
-//     area.value += new Array(81).join("-") + "\n";
-//   }
-//   lastTime = Date.now();
-
-//   area.value += text;
-
-//   if (form.elements[e.type + "Stop"].checked) {
-//     e.preventDefault();
+// function changeKeysNumber(event) {
+//   let keys;
+//   keyWord.shift == true ? (keys = "numEng") : (keys = "numbRu");
+//   for (let i = 0; i < header.childNodes.length; i++) {
+//     header.childNodes[i].innerHTML = keyWord[keys][i];
 //   }
 // }
