@@ -54,7 +54,6 @@ const textArea = document.querySelector("#textArea");
 createEl(keyWord.langRu, main);
 createEl(keyWord.numbRu, header);
 createEl(keyWord.leftButton, aside);
-// createEl(keyWord.langEng, main);
 function createEl(keyWord, place) {
   keyWord.forEach((el) => {
     let button = document.createElement("button");
@@ -75,45 +74,3 @@ function CapsLockAdd(event) {
       : event.target.innerHTML.toUpperCase();
   }
 }
-
-function handler(event) {
-  if (event.target.innerHTML.length > 1) {
-    return keyDownUp(event);
-  }
-  keyWord.ctrl === true || keyWord.shift === true
-    ? (textArea.innerHTML += event.target.innerHTML.toUpperCase())
-    : (textArea.innerHTML += event.target.innerHTML.toLowerCase());
-}
-function keyDownUp(event) {
-  keyWord[event.target.innerHTML] = !keyWord[event.target.innerHTML];
-  addDellBacklightSomeKeys(event);
-  event.target.innerHTML += "";
-  changeKeysNumber();
-  if (
-    keyWord.shift == true &&
-    keyWord.alt == true &&
-    event.target.innerHTML != CapsLock
-  )
-    changeKeysLetters(event);
-  return keyWord[event.target.innerHTML];
-}
-function addDellBacklightSomeKeys(event) {
-  !event.path[0].classList.contains("backLight")
-    ? event.path[0].classList.add("backLight")
-    : event.path[0].classList.remove("backLight");
-}
-function changeKeysLetters(event) {
-  let keys;
-  main.childNodes[0].innerHTML === "й" ? (keys = "langEng") : (keys = "langRu");
-  for (let i = 0; i < main.childNodes.length; i++) {
-    main.childNodes[i].innerHTML = keyWord[keys][i];
-  }
-}
-
-// function changeKeysNumber(event) {
-//   let keys;
-//   keyWord.shift == true ? (keys = "numEng") : (keys = "numbRu");
-//   for (let i = 0; i < header.childNodes.length; i++) {
-//     header.childNodes[i].innerHTML = keyWord[keys][i];
-//   }
-// }
