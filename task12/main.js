@@ -32,7 +32,7 @@ let numberRu = [
   "=",
   "Backspace",
 ];
-let leftButton = ["ctrl", "shift", "CapsLock", "tab"];
+let leftButton = ["CapsLock", "tab"];
 let rightButton = ["Space", "Enter", "Delete"];
 let keyWord = {
   numbRu: numberRu,
@@ -41,8 +41,7 @@ let keyWord = {
   langRu: alphabetRu,
   leftButton: leftButton,
   rightButton: rightButton,
-  ctrl: false,
-  shift: false,
+
   CapsLock: false,
 };
 const main = document.querySelector("main");
@@ -74,10 +73,40 @@ function CapsLockAdd(event) {
       : event.target.innerHTML.toUpperCase();
   }
 }
+let ctl = false;
+let shift = false;
 
-document.addEventListener("keydown", changeLang);
-function changeLang(params) {
-  if (keyWord.shift === false && keyWord.ctrl === false) {
+function onCtl() {
+  // создать кнопку и повесить на нее событие onClick, которое вызывает эту функцию
+  ctl = true;
+  console.log(shift);
+  console.log(ctl);
+  if (ctl === true && shift === true) {
+    console.log(shift);
+    changeLang();
+    ctl = false;
+    shift = false;
+  }
+}
+
+function onShift() {
+  // создать кнопку и повесить на нее событие onClick, которое вызывает эту функцию
+  shift = true;
+  console.log(shift);
+  console.log(ctl);
+  if (ctl === true && shift === true) {
+    console.log(shift);
+    changeLang();
+    ctl = false;
+    shift = false;
+  }
+}
+
+//document.addEventListener("keydown", changeLang);
+function changeLang() {
+  element = document.getElementById("letters");
+  firstLetter = element.firstChild;
+  if (firstLetter.textContent != "q") {
     main.innerHTML = "";
     createEl(keyWord.langEng, main);
   } else {
