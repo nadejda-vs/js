@@ -74,3 +74,28 @@ function CapsLockAdd(event) {
       : event.target.innerHTML.toUpperCase();
   }
 }
+
+document.addEventListener("keydown", changeLang);
+function changeLang(params) {
+  if (keyWord.shift === false && keyWord.ctrl === false) {
+    main.innerHTML = "";
+    createEl(keyWord.langEng, main);
+  } else {
+    main.innerHTML = "";
+    createEl(keyWord.langRu, main);
+  }
+}
+
+// function changeLang(keyWord.shift === false &&  keyWord.ctrl===false) {
+//   // поставить на событие
+//   element = document.getElementById("letters"); // это id к тегу main
+//   firstLetter = element.firstChild;
+//   if (firstLetter !== q) {
+//     element.innerHTML = "";
+//     createEl(keyWord.langEng, main);
+//   } else {
+//     element.innerHTML = "";
+//     createEl(keyWord.langRu, main);
+//   }
+//   console.log(element);
+// }
