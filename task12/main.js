@@ -1,5 +1,5 @@
-let alphabetEng = `qwertyuiopasdfghjklzxcvbnm`.split("");
-let alphabetRu = "йцукенгшщзхъфывапролджэячсмитьбю".split("");
+let alphabetEng = `qwertyuiopasdfghjklzxcvbnm,./↵`.split("");
+let alphabetRu = "йцукенгшщзхъфывапролджэячсмитьбю↵".split("");
 let numberEng = [
   "`",
   "1",
@@ -33,22 +33,20 @@ let numberRu = [
   "Backspace",
 ];
 let leftButton = ["CapsLock", "tab"];
-let rightButton = ["Space", "Enter", "Delete"];
+
 let keyWord = {
   numbRu: numberRu,
   numEng: numberEng,
   langEng: alphabetEng,
   langRu: alphabetRu,
   leftButton: leftButton,
-  rightButton: rightButton,
-
-  CapsLock: false,
 };
 const main = document.querySelector("main");
 const aside = document.querySelector("aside");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const textArea = document.querySelector("#textArea");
+textArea.focus();
 
 createEl(keyWord.langRu, main);
 createEl(keyWord.numbRu, header);
@@ -57,7 +55,8 @@ function createEl(keyWord, place) {
   keyWord.forEach((el) => {
     let button = document.createElement("button");
     button.innerHTML = el;
-    button.onclick = CapsLockAdd;
+    changeStyleButton(button);
+    button.onclick = handler;
     place.append(button);
   });
 }
@@ -77,20 +76,19 @@ let ctl = false;
 let shift = false;
 
 function onCtl() {
-  // создать кнопку и повесить на нее событие onClick, которое вызывает эту функцию
   ctl = true;
   console.log(shift);
   console.log(ctl);
   if (ctl === true && shift === true) {
     console.log(shift);
     changeLang();
+    changeNumb();
     ctl = false;
     shift = false;
   }
 }
 
 function onShift() {
-  // создать кнопку и повесить на нее событие onClick, которое вызывает эту функцию
   shift = true;
   console.log(shift);
   console.log(ctl);
@@ -102,29 +100,33 @@ function onShift() {
   }
 }
 
-//document.addEventListener("keydown", changeLang);
 function changeLang() {
   element = document.getElementById("letters");
+  elmentNumb = document.getElementById("letters");
   firstLetter = element.firstChild;
   if (firstLetter.textContent != "q") {
     main.innerHTML = "";
+    header.innerHTML = "";
     createEl(keyWord.langEng, main);
+    createEl(keyWord.numEng, header);
   } else {
     main.innerHTML = "";
+    header.innerHTML = "";
     createEl(keyWord.langRu, main);
+    createEl(keyWord.numbRu, header);
   }
 }
 
-// function changeLang(keyWord.shift === false &&  keyWord.ctrl===false) {
-//   // поставить на событие
-//   element = document.getElementById("letters"); // это id к тегу main
-//   firstLetter = element.firstChild;
-//   if (firstLetter !== q) {
-//     element.innerHTML = "";
-//     createEl(keyWord.langEng, main);
-//   } else {
-//     element.innerHTML = "";
-//     createEl(keyWord.langRu, main);
-//   }
-//   console.log(element);
-// }
+function changeStyleButton(button) {
+  if (button.innerHTML === "↵") return button.classList.add("enter");
+}
+
+function handler(event) {
+  let key = event.target.innerHTML;
+  if (key === "↵") return enterEvent();
+  CapsLockAdd(event);
+}
+
+function enterEvent() {
+  textArea.innerHTML = textArea.innerHTML + "\n";
+}
