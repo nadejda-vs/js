@@ -128,5 +128,5 @@ function handler(event) {
 }
 
 function enterEvent() {
-  textArea.innerHTML = textArea.innerHTML + "\n";
+  textArea.value = textArea.value + "\n";
 }
