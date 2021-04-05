@@ -132,28 +132,29 @@ function handler(event) {
   if (key === "ᐸ") return ArrowLeft();
   CapsLockAdd(event);
 }
-let focusCount = 0;
+// let focusCount = 0;
 function ArrowLeft() {
-  focusCount++;
-  moveFocus(focusCount);
-  return focusCount;
-  // console.log(focusCount);
+  let start = textArea.selectionStart;
+  let end = textArea.selectionEnd;
+  textArea.setSelectionRange(start - 1, start - 1);
+  textArea.focus();
+  console.log(start);
 }
 
-function moveFocus(c) {
-  // console.log("ldkf");
-  let value = textArea.focus();
-  // for (let i = 0; i < textArea.value.length; i++) {
-  value--;
-  //   focusCount -= 1;
+// function moveFocus(c) {
+//   // console.log("ldkf");
+//   let value = textArea.focus();
+//   // for (let i = 0; i < textArea.value.length; i++) {
+//   value--;
+//   //   focusCount -= 1;
 
-  textArea.setSelectionRange(
-    value,
-    textArea.value.slice(0, -1) /////функция для выделения всего написаннго текста
-  );
-  // return textArea.value.length - 1;
-  // console.log(textArea.value.length);
-}
+//   textArea.setSelectionRange(
+//     value,
+//     textArea.value.slice(0, -1) /////функция для выделения всего написаннго текста
+//   );
+// return textArea.value.length - 1;
+// console.log(textArea.value.length);
+// }
 function deleteAll() {
   textArea.value = "";
 }
