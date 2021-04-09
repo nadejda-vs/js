@@ -1,4 +1,4 @@
-let alphabetEng = `qwertyuiopasdfghjklzxcvbnm,./↵ ⟵`.split("");
+let alphabetEng = `qwertyuiopasdfghjklzxcvbnm,./↵⟵`.split("");
 let alphabetRu = "йцукенгшщзхъфывапролджэячсмитьбю↵⟵".split("");
 let numberEng = [
   "`",
@@ -39,13 +39,13 @@ let keyWord = {
   langRu: alphabetRu,
   leftButton: leftButton,
   arrow: Arrow,
+  CapsLock: false,
 };
 const main = document.querySelector("main");
 const aside = document.querySelector("aside");
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const textArea = document.querySelector("#textArea");
-// textArea.focus();
 
 createEl(keyWord.langRu, main);
 createEl(keyWord.numbRu, header);
@@ -55,22 +55,21 @@ function createEl(keyWord, place) {
   keyWord.forEach((el) => {
     let button = document.createElement("button");
     button.innerHTML = el;
-    changeStyleButton(button);
+    // changeStyleButton(button);
     button.onclick = handler;
     place.append(button);
   });
 }
 
 function CapsLockAdd(event) {
-  if (event.target.innerHTML.length > 1) {
+  if (event.target.innerHTML === "CapsLock") {
     keyWord.CapsLock = !keyWord.CapsLock;
     return keyWord.CapsLock;
   }
-  if (event.target.tagName === "BUTTON") {
-    textArea.value += !keyWord.CapsLock
-      ? event.target.innerHTML
-      : event.target.innerHTML.toUpperCase();
-  }
+
+  textArea.value += !keyWord.CapsLock
+    ? event.target.innerHTML
+    : event.target.innerHTML.toUpperCase();
 }
 let ctl = false;
 let shift = false;
@@ -102,7 +101,7 @@ function onShift() {
 
 function changeLang() {
   element = document.getElementById("letters");
-  elmentNumb = document.getElementById("letters");
+  // elmentNumb = document.getElementById("letters");
   firstLetter = element.firstChild;
   if (firstLetter.textContent != "q") {
     main.innerHTML = "";
@@ -117,44 +116,63 @@ function changeLang() {
   }
 }
 
-function changeStyleButton(button) {
-  if (button.innerHTML === "↵") return button.classList.add("enter");
-  if (button.innerHTML === "⟵") return button.classList.add("backSpace");
-  if (button.innerHTML === "Delete") return button.classList.add("delete");
-  if (button.innerHTML === "ᐸ") return button.classList.add("arrowLeft");
-}
+// function changeStyleButton(button) {
+//   if (button.innerHTML === "↵") return button.classList.add("enter");
+//   if (button.innerHTML === "⟵") return button.classList.add("backSpace");
+//   if (button.innerHTML === "Delete") return button.classList.add("delete");
+//   if (button.innerHTML === "ᐸ") return button.classList.add("arrowLeft");
+// }
 
 function handler(event) {
+  textArea.focus();
   let key = event.target.innerHTML;
   if (key === "↵") return enterEvent();
   if (key === "⟵") return backSpace();
   if (key === "Delete") return deleteAll();
   if (key === "ᐸ") return ArrowLeft();
+  if (key === "ᐳ") return ArrowRight();
+  if (key === "ᐱ") return ArrowTop();
+  // if (key === "ᐯ") return ArrowBottom();
+
   CapsLockAdd(event);
 }
-// let focusCount = 0;
+
 function ArrowLeft() {
   let start = textArea.selectionStart;
-  let end = textArea.selectionEnd;
+  // let end = textArea.selectionEnd;
   textArea.setSelectionRange(start - 1, start - 1);
   textArea.focus();
   console.log(start);
 }
-
-// function moveFocus(c) {
-//   // console.log("ldkf");
-//   let value = textArea.focus();
-//   // for (let i = 0; i < textArea.value.length; i++) {
-//   value--;
-//   //   focusCount -= 1;
-
-//   textArea.setSelectionRange(
-//     value,
-//     textArea.value.slice(0, -1) /////функция для выделения всего написаннго текста
-//   );
-// return textArea.value.length - 1;
-// console.log(textArea.value.length);
+function ArrowTop() {
+  let start = textArea.selectionStart;
+  let newTextArea = textArea.setSelectionRange(start + 0, start - 1);
+  // return newTextArea;
+  console.log(start);
+  // textArea.value = textArea.value - "\n";
+  // textArea.focus();
+  // console.log(start);
+  // let cursorIndex = textArea.selectionStart;
+  // const prevLine = textArea.value.lastIndexOf("\n", cursorIndex);
+  // const prevPrevLine = textArea.value.lastIndexOf("\n", prevLine - 1);
+  // console.log(prevLine);
+  // console.log(prevPrevLine);
+}
+// function ArrowBottom() {
+//   let start = textArea.selectionStart;
+//   let end = textArea.selectionEnd;
+//   textArea.setSelectionRange(start - 1, start - 1);////// изменить
+//   textArea.focus();
+//   console.log(start);
 // }
+function ArrowRight() {
+  let start = textArea.selectionStart;
+  let end = textArea.selectionEnd;
+  textArea.setSelectionRange(start + 1, start + 1);
+  textArea.focus();
+  console.log(start);
+}
+
 function deleteAll() {
   textArea.value = "";
 }
